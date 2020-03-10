@@ -1,0 +1,281 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>jQuery Table Of Contents Plugin.</title>
+    <link href="./libs/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .jsontotable table,
+        .jsontotable th,
+        .jsontotable td {
+            border: 1px solid black;
+            margin: 150px;
+        }
+        
+        code {
+            white-space: normal;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="jsontotable-arr" class="jsontotable"></div>
+        <div id="jsontotable-obj" class="jsontotable"></div>
+        <div id="jsontotable-objwithdata" class="jsontotable"></div>
+        <div id="jsontotable-str" class="jsontotable"></div>
+    </div>
+    <script type="text/javascript" src="./libs/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="./dist/jquery.jsontotable.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var arr = [
+                [1, 2, 3],
+                ['one', 'two', 'three']
+            ];
+
+            // var input = JSON.stringify(arr);
+            // $("#jsontotable-arr")
+            //     .append($("<h1></h1>").html("Array To Table"))
+            //     .append($("<h2></h2>").html("Input"))
+            //     .append($("<code></code>").html(input))
+            //     .append($("<h2></h2>").html("Output"));
+
+            // $.jsontotable(arr, {
+            //     id: "#jsontotable-arr",
+            //     header: false
+            // });
+
+            // $("#jsontotable-arr")
+            //     .append($("<h1></h1>").html("Array To Table (Without Header)"))
+            //     .append($("<h2></h2>").html("Input"))
+            //     .append($("<code></code>").html(input))
+            //     .append($("<h2></h2>").html("Output"));
+
+            // $.jsontotable(arr, {
+            //     id: "#jsontotable-arr",
+            //     header: false //deklarasi jadi header atau gk
+            // });
+
+            var obj = [{
+                "Kategori": "\"Inpicture\"",
+                "Judul": "\"Antisipasi Penyebaran Virus Corona di LRT Sumatera Selatan \"",
+                "Waktu Publish": "\"12 detik yang lalu\"",
+                "Waktu Diambil": "19:26:59 10/3/2020"
+            }, {
+                "Kategori": "\"Nusantara\"",
+                "Judul": "\"Trainset LRT Sumsel Disemprot Disinfektan Setiap Hari\"",
+                "Waktu Publish": "\"2 menit yang lalu\"",
+                "Waktu Diambil": "19:26:59 10/3/2020"
+            }, {
+                "Kategori": "\"Internasional\"",
+                "Judul": "\"Warga Inggris dengan Gejala Ringan Corona Diminta di Rumah\"",
+                "Waktu Publish": "\"3 menit yang lalu\"",
+                "Waktu Diambil": "19:26:59 10/3/2020"
+            }, {
+                "Kategori": "\"Nasional\"",
+                "Judul": "\"DPR Minta Kemenkeu dan BPJS Kesehatan Hitung Kembali Defisit\"",
+                "Waktu Publish": "\"5 menit yang lalu\"",
+                "Waktu Diambil": "19:26:59 10/3/2020"
+            }, {
+                "Kategori": "\"Ekonomi\"",
+                "Judul": "\"Tingkatkan Produktivitas Pertanian Dalam Negeri\"",
+                "Waktu Publish": "\"6 menit yang lalu\"",
+                "Waktu Diambil": "19:26:59 10/3/2020"
+            }, {
+                "Kategori": "\"Madeena\"",
+                "Judul": "\"Kiat Terhindar Penipuan Berkedok Donasi\"",
+                "Waktu Publish": "\"7 menit yang lalu\"",
+                "Waktu Diambil": "19:26:59 10/3/2020"
+            }, {
+                "Kategori": "\"Khazanah\"",
+                "Judul": "\"Ini Sejumlah Peninggalan Islam di Spanyol (2)\"",
+                "Waktu Publish": "\"7 menit yang lalu\"",
+                "Waktu Diambil": "19:26:59 10/3/2020"
+            }, {
+                "Kategori": "\"Nusantara\"",
+                "Judul": "\"RS PKU Yogyakarta Gelar Simulasi Penanganan Corona\"",
+                "Waktu Publish": "\"7 menit yang lalu\"",
+                "Waktu Diambil": "19:26:59 10/3/2020"
+            }, {
+                "Kategori": "\"Inpicture\"",
+                "Judul": "\"Pencegahan Penyebaran Virus Corona Covid-19\"",
+                "Waktu Publish": "\"8 menit yang lalu\"",
+                "Waktu Diambil": "19:26:59 10/3/2020"
+            }, {
+                "Kategori": "\"Khazanah\"",
+                "Judul": "\"Ini Sejumlah Peninggalan Islam di Spanyol (1)\"",
+                "Waktu Publish": "\"8 menit yang lalu\"",
+                "Waktu Diambil": "19:26:59 10/3/2020"
+            }, {
+                "Kategori": "\"Nasional\"",
+                "Judul": "\"Jubir: Ada Pasien Corona Belum Terlacak Sumber Penularannya\"",
+                "Waktu Publish": "\"11 menit yang lalu\"",
+                "Waktu Diambil": "19:26:59 10/3/2020"
+            }, {
+                "Kategori": "\"IHRAM.CO.ID\"",
+                "Judul": "\"Jamaah Umrah Perdana Masjid Brimingham Inggris Tertunda\"",
+                "Waktu Publish": "\"12 menit yang lalu\"",
+                "Waktu Diambil": "19:26:59 10/3/2020"
+            }, {
+                "Kategori": "\"Khazanah\"",
+                "Judul": "\"Korban Penembakan Christchurch Masih Berjuang Pulihkan Diri\"",
+                "Waktu Publish": "\"12 menit yang lalu\"",
+                "Waktu Diambil": "19:26:59 10/3/2020"
+            }, {
+                "Kategori": "\"Nasional\"",
+                "Judul": "\"SK Kemenkumham Kepengurusan PAN Disebut Telah Terbit\"",
+                "Waktu Publish": "\"13 menit yang lalu\"",
+                "Waktu Diambil": "19:26:59 10/3/2020"
+            }, {
+                "Kategori": "\"Ekonomi\"",
+                "Judul": "\"Mentan : Pemerintah Jamin Pangan Rakyat Tercukupi\"",
+                "Waktu Publish": "\"14 menit yang lalu\"",
+                "Waktu Diambil": "19:26:59 10/3/2020"
+            }, {
+                "Kategori": "\"Inpicture\"",
+                "Judul": "\"Bermain dengan 10 Pemain, PSM Tahan Imbang Kaya FC 1-1\"",
+                "Waktu Publish": "\"17 menit yang lalu\"",
+                "Waktu Diambil": "19:26:59 10/3/2020"
+            }, {
+                "Kategori": "\"Nusantara\"",
+                "Judul": "\"Menteri Desa PDT Dorong Kades tak Jabat Satu Periode\"",
+                "Waktu Publish": "\"18 menit yang lalu\"",
+                "Waktu Diambil": "19:26:59 10/3/2020"
+            }, {
+                "Kategori": "\"Nusantara\"",
+                "Judul": "\" Cegah Corona, Pemeriksaan Pengunjung Rutan Depok Diperketat\"",
+                "Waktu Publish": "\"18 menit yang lalu\"",
+                "Waktu Diambil": "19:26:59 10/3/2020"
+            }, {
+                "Kategori": "\"Sepak Bola\"",
+                "Judul": "\"Meski tak Puas, Bojan Sebut Pemain PSM Berjuang Maksimal\"",
+                "Waktu Publish": "\"18 menit yang lalu\"",
+                "Waktu Diambil": "19:26:59 10/3/2020"
+            }, {
+                "Kategori": "\"Nusantara\"",
+                "Judul": "\"Eskalasi Tembagapura, Mahfud: Biar Diselesaikan di Sana\"",
+                "Waktu Publish": "\"20 menit yang lalu\"",
+                "Waktu Diambil": "19:26:59 10/3/2020"
+            }, {
+                "Kategori": "\"Nusantara\"",
+                "Judul": "\"BPBD Sukabumi Pantau Kerusakan Dampak Gempa Magnitudo 5\"",
+                "Waktu Publish": "\"20 menit yang lalu\"",
+                "Waktu Diambil": "19:26:59 10/3/2020"
+            }, {
+                "Kategori": "\"Khazanah\"",
+                "Judul": "\"Bagi Anda yang Suka Minder, Ini Nasihat dari Aa Gym \"",
+                "Waktu Publish": "\"22 menit yang lalu\"",
+                "Waktu Diambil": "19:26:59 10/3/2020"
+            }, {
+                "Kategori": "\"IHRAM.CO.ID\"",
+                "Judul": "\"Dirut Garuda Yakin Penangguhan Umroh dari Saudi tak Lama\"",
+                "Waktu Publish": "\"23 menit yang lalu\"",
+                "Waktu Diambil": "19:26:59 10/3/2020"
+            }, {
+                "Kategori": "\"Inpicture\"",
+                "Judul": "\"Leicester Menang Besar 4-0 Atas Aston Villa\"",
+                "Waktu Publish": "\"23 menit yang lalu\"",
+                "Waktu Diambil": "19:26:59 10/3/2020"
+            }, {
+                "Kategori": "\"Madeena\"",
+                "Judul": "\"Yuk! Buat Pos Anggaran Khusus Dana Sosial\"",
+                "Waktu Publish": "\"23 menit yang lalu\"",
+                "Waktu Diambil": "19:26:59 10/3/2020"
+            }];
+
+            input = JSON.stringify(obj);
+            $("#jsontotable-obj")
+                .append($("<h1></h1>").html("Daftar Hot News REPUBLIKA.CO.ID "))
+                // .append($("<h2></h2>").html("Input"))
+                // .append($("<code></code>").html(input))
+                // .append($("<h2></h2>").html("Output"));
+
+            // $.jsontotable(obj, {
+            //     id: "#jsontotable-obj"
+            // });
+
+            $("#jsontotable-obj")
+                .append($("<h6></h6>").html("By LXDragon ~ 191524033"))
+                // .append($("<h2></h2>").html("By LXDragon"))
+                // .append($("<code></code>").html(input))
+                // .append($("<h2></h2>").html("Output"));
+
+            $.jsontotable(obj, {
+                id: "#jsontotable-obj",
+                header: false
+            });
+
+            // // //     // var objwithdata = [{
+            // // //     //     id: 'header',
+            // // //     //     class: 'header-class',
+            // // //     //     _data: ['Hello', 'Fine', 'Thank you']
+            // // //     // }, {
+            // // //     //     "Title1": "안녕하세요",
+            // // //     //     "Title2": "좋아요",
+            // // //     //     "Title3": "감사합니다"
+            // // //     // }, {
+            // // //     //     "Title1": "こんにちは",
+            // // //     //     "Title2": "ファイン",
+            // // //     //     "Title3": "ありがとう"
+            // // //     // }, {
+            // // //     //     "Title1": "你好",
+            // // //     //     "Title2": "精",
+            // // //     //     "Title3": "谢谢"
+            // // //     // }, {
+            // // //     //     "Title1": "Bonjour",
+            // // //     //     "Title2": "Beaux",
+            // // //     //     "Title3": "Merci"
+            // // //     // }, {
+            // // //     //     "Title1": "Ciao",
+            // // //     //     "Title2": "Bene",
+            // // //     //     "Title3": "Grazie"
+            // // //     // }];
+
+            // // //     input = JSON.stringify(objwithdata);
+            // // //     $("#jsontotable-objwithdata")
+            // // //         .append($("<h1></h1>").html("JSON To Table with _data attribute (Has Header)"))
+            // // //         .append($("<h2></h2>").html("Input"))
+            // // //         .append($("<code></code>").html(input))
+            // // //         .append($("<h2></h2>").html("Output"));
+
+            // // //     $.jsontotable(objwithdata, {
+            // // //         id: "#jsontotable-objwithdata"
+            // // //     });
+
+            // // //     $("#jsontotable-objwithdata")
+            // // //         .append($("<h1></h1>").html("JSON To Table with _data attribute  (Without Header)"))
+            // // //         .append($("<h2></h2>").html("Input"))
+            // // //         .append($("<code></code>").html(input))
+            // // //         .append($("<h2></h2>").html("Output"));
+
+            // // //     $.jsontotable(objwithdata, {
+            // // //         id: "#jsontotable-objwithdata",
+            // // //         header: false
+            // // //     });
+
+            // // //     var str = '[\
+            // // // 		{"Title1": "Hello", "Title2": "Fine", "Title3": "Thank you"}, \
+            // // // {"Title1": "안녕하세요", "Title2": "좋아요", "Title3": "감사합니다"}, \
+            // // // {"Title1": "こんにちは", "Title2": "ファイン", "Title3": "ありがとう"}, \
+            // // // 		{"Title1": "你好", "Title2": "精", "Title3": "谢谢"}, \
+            // // // 		{"Title1": "Bonjour", "Title2": "Beaux", "Title3": "Merci"}, \
+            // // // {"Title1": "Ciao", "Title2": "Bene", "Title3": "Grazie"} \
+            // // // 	]';
+
+            // // $("#jsontotable-str")
+            // //     .append($("<h1></h1>").html("JSON (String Format) To Table"))
+            // //     .append($("<h2></h2>").html("Input"))
+            // //     .append($("<code></code>").html(input))
+            // //     .append($("<h2></h2>").html("Output"));
+
+            // $.jsontotable(str, {
+            //     id: "#jsontotable-str",
+            //     className: "table table-hover"
+            // });
+        });
+    </script>
+</body>
+
+</html>
